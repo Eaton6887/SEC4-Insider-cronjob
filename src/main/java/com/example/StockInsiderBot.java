@@ -227,7 +227,7 @@ public class StockInsiderBot {
 
                 if ("BUY".equals(e.type)) {
                     // 红色圆点 + diff 代码块（桌面端红色字体，手机端可见红色圆点）
-                    msg.append("```diff\n- 🔴 ").append(line).append("\n```\n");
+                    msg.append("```diff\n🔴 ").append(line).append("\n```\n");
                 } else {
                     msg.append("  ").append(line).append("\n");
                 }
