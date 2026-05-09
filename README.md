@@ -34,33 +34,15 @@ A simple Java bot that runs on GitHub Actions to check for large insider transac
 ## Usage
 
 - **Manual run**: Go to Actions tab, select "Daily Insider Check", click "Run workflow", enter your desired tickers, threshold, and lookback days. Defaults are provided.
-- **Scheduled**: Runs daily automatically using repository variables if set, otherwise uses built-in defaults (`AAPL,GOOGL`, $500k, 1 day lookback).
+- **Scheduled**: Runs daily automatically using default values in `./.github/workflows/daily-check.yml`. You need to customise tickers, threshold and lookback to your preferences.
 - **Configuration**: 
-  - **Repository Variables** (for cron job defaults): Set `TICKERS`, `THRESHOLD_USD`, `LOOKBACK_DAYS` in repo Settings → Variables
   - **GitHub secret**: Set `DISCORD_WEBHOOK_URL` in Settings → Secrets and variables → Actions
-  - **CLI options**: For local testing or custom runs
   - **Ticker format**: `BRKB` or `BRK-B` are supported; `BRK.B` is not supported. Ticker input is case-insensitive.
 
-### Example local CLI commands
-
-```bash
-mvn exec:java -Dexec.args="--tickers=AAPL,GOOGL,MSFT --threshold=500000 --lookback=7"
-```
-
-```bash
-mvn exec:java -Dexec.args="AAPL,GOOGL,MSFT --threshold=1000000 --lookback=3"
-```
-
-```bash
-mvn exec:java -Dexec.args="--tickers=ZTS --threshold=500000 --lookback=1 --mock=true"
-```
-
-- If `DISCORD_WEBHOOK_URL` is not set, the bot logs alerts to the Actions console instead of failing.
 - Push notifications include ticker, owner, position, action, security, shares, price, and amount on separate lines.
-
+![alt text](image.png)
 ## Requirements
 
-- Java 21
 - Maven
 - GitHub Actions
 
