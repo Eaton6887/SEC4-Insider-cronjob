@@ -51,3 +51,4 @@ A simple Java bot that runs on GitHub Actions to check for large insider transac
 - Only checks non-derivative transactions (P/S codes)
 - Excludes awards (A) and exercises (M) to avoid RSU-related transactions
 - Data from SEC EDGAR, subject to their terms
+ 
